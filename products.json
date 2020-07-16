@@ -31,12 +31,6 @@
     "featured": "false"
   },
   {
-    "name": "Bathsalts",
-    "description": "zombification powder",
-    "price": "1000",
-    "featured": "false"
-  },
-  {
     "name": "Taco",
     "description": "monkey",
     "price": "6",
@@ -66,5 +60,7 @@
     "description": "the best.",
     "price": "8.",
     "featured": false
-  }
+  },
+  { "name": "", "description": "monkey", "price": "", "featured": false },
+  { "name": "", "description": "", "price": "", "featured": false }
 ]

@@ -6,20 +6,28 @@
   {{/each}}
 </ul>
 
-<span>{{error}}</span>
 
 <form action="/form" method="post">
   <label for="name">Product Name:</label><br>
+  <div>{{errors.name}}</div>
   <input type="text" id="name" name="name" value="{{product.name}}"><br>
+  <div>{{errors.description}}</div>
   <label for="description">Description:</label><br>
   <input type="text" id="description" name="description" value="{{product.description}}" ><br>
+  <div>{{errors.price}}</div>
   <label for="price">Price:</label><br>
   <input type="text" id="price" name="price" value="{{product.price}}"><br>
+  <div>{{errors.featured}}</div>
   <span>Feature: </span>
   <label for="featured-true">Y</label>
-  <input type="radio" id="featured-true" name="featured" value="true">
+
+  <input type="radio" id="featured-true" name="featured" value="true" {{featured}}>
+
+  <input type="radio" id="featured-true" name="featured" value="true" >
+  {{/if}}
+
   <label for="featured-false">N</label>
   <input type="radio" id="featured-false" name="featured" value="false">
-<br>
+  <br>
   <input type="submit" value="Submit">
 </form>

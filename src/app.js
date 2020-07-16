@@ -35,31 +35,36 @@ const productsPath = path.join(__dirname, '../products.json')
 const productsJson = () => {
   return JSON.parse(fs.readFileSync(productsPath))
 }
+function validateForm(jsonFormInput) {
+  let errors = [];
+  if (!jsonFormInput["featured"]) errors["featured"] = "You must select whether or not the product is featured";
+  Object.keys(jsonFormInput).forEach(input => {
+    if (!jsonFormInput[input].trim()) {
+      errors[input] = `You must include a ${input}`;
+    }
+  })
+  return errors;
+}
 
+// import createError from "http-errors"
+
+// catch 404 and forward to error handler
+// app.use((req, res, next) => {
+//   next(createError(404))
+// })
 
 app.post("/form", (req, res) => {
+  let errors = validateForm(req.body)
   let allProducts = productsJson()
   let newProduct = req.body
-
-  let valid = true;
-  Object.keys(newProduct).forEach(key => {
-    newProduct[key] = newProduct[key].trim()
-    if (!newProduct[key]) {valid = false;}
-  });
-
-  if (newProduct.featured === "true") {
-    newProduct.featured = true
-  } else {
-    newProduct.featured = false
-  }
-  if(valid){
-    allProducts.push(newProduct)
+  req.body.featured = req.body.featured === "true" ? true : false;
+  if(Object.keys(errors).length === 0){
+    allProducts.push(req.body)
     fs.writeFileSync(productsPath, JSON.stringify(allProducts))
     res.redirect("/")
   } else {
-
     let products = productsJson().filter(product => product.featured)
-    res.render('index', {products: products, error: "Please fill out the form correctly :P", product: newProduct})
+    res.render('index', {products: products, errors: errors, product: req.body})
   }
 })
 
@@ -70,7 +75,10 @@ app.get("/", (req, res) => {
 app.get("/:productName", (req, res) => {
   res.render("show", {product : productsJson().find(product => product.name === req.params.productName)})
 })
-
+app.get("/delete/:productName", (req, res) => {
+  fs.writeFileSync(productsPath, JSON.stringify(productsJson().filter(product => product.name !== req.params.productName)));
+  res.redirect("/");
+})
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...")
 })
