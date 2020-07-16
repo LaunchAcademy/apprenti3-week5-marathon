@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Rubber Duck",
+    "description": "Your resident conversationalist",
+    "price": 4.99,
+    "featured": true
+  },
+  {
+    "name": "Engineering Journal",
+    "description": "Record your observations and thoughts as you work through coding projects",
+    "price": 7.99,
+    "featured": true
+  },
+  {
+    "name": "Sleep Mask",
+    "description": "Get your Z's in so that you can code well in the morning",
+    "price": 9.99,
+    "featured": false
+  },
+  { "name": "Crabby Patty", "description": "Spongebob food idk", "price": "3" },
+  {
+    "name": "TacoMonkey Sticker",
+    "description": "Its a taco monkey sticker...",
+    "price": "1.99",
+    "featured": "true"
+  },
+  {
+    "name": "Less cool tacomonkey sticker",
+    "description": "See product name",
+    "price": "0.01",
+    "featured": "false"
+  },
+  {
+    "name": "Bathsalts",
+    "description": "zombification powder",
+    "price": "1000",
+    "featured": "false"
+  },
+  {
+    "name": "Taco",
+    "description": "monkey",
+    "price": "6",
+    "featured": "false"
+  },
+  {
+    "name": "Bit of string",
+    "description": "Holy objecty",
+    "price": "100000",
+    "featured": false
+  },
+  {
+    "name": "burrito",
+    "description": "wrapped up goodness",
+    "price": "5",
+    "featured": true
+  },
+  {
+    "name": "        ",
+    "description": "       ",
+    "price": "      ",
+    "featured": true
+  },
+  { "name": "HI.", "description": "balah", "price": "7.", "featured": true },
+  {
+    "name": "mONKEY.",
+    "description": "the best.",
+    "price": "8.",
+    "featured": false
+  }
+]

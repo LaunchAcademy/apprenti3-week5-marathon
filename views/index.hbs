@@ -1,0 +1,25 @@
+<h1>Welcome Coder</h1>
+<p>All the gear a Launcher needs</p>
+<ul>
+  {{#each products}}
+  <li> <a href="/{{this.name}}">{{this.name}}</a>: ${{this.price}}</li>
+  {{/each}}
+</ul>
+
+<span>{{error}}</span>
+
+<form action="/form" method="post">
+  <label for="name">Product Name:</label><br>
+  <input type="text" id="name" name="name" value="{{product.name}}"><br>
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description" value="{{product.description}}" ><br>
+  <label for="price">Price:</label><br>
+  <input type="text" id="price" name="price" value="{{product.price}}"><br>
+  <span>Feature: </span>
+  <label for="featured-true">Y</label>
+  <input type="radio" id="featured-true" name="featured" value="true">
+  <label for="featured-false">N</label>
+  <input type="radio" id="featured-false" name="featured" value="false">
+<br>
+  <input type="submit" value="Submit">
+</form>
